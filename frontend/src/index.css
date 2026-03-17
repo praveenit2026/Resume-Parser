@@ -1,0 +1,51 @@
+:root {
+  --ink: #0E0E0E;
+  --ink-soft: #3D3D3D;
+  --ink-muted: #7A7775;
+  --paper: #F5F0E8;
+  --paper-bright: #FDFBF7;
+  --paper-dark: #EDE8DF;
+  --accent: #C8402A;
+  --accent-soft: #F2E8E5;
+  --accent-dark: #9B2F1C;
+  --green: #2A6B45;
+  --green-soft: #E4F0EA;
+  --amber: #B86B10;
+  --amber-soft: #FBF0E0;
+  --border: rgba(14,14,14,0.1);
+  --border-strong: rgba(14,14,14,0.2);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Outfit', sans-serif;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% -10%, rgba(200,64,42,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(42,107,69,0.05) 0%, transparent 50%);
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--paper-dark); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }

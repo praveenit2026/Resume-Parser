@@ -1,0 +1,152 @@
+.panel { display: flex; flex-direction: column; gap: 1.25rem; animation: fadeUp 0.5s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  color: var(--paper);
+}
+@media (max-width: 580px) { .hero { flex-direction: column; text-align: center; padding: 1.5rem; } }
+
+.heroText { flex: 1; }
+.verdict {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 0.6rem;
+}
+.verdictGreen { background: rgba(42,107,69,0.3); color: #6DD8A0; }
+.verdictAmber { background: rgba(184,107,16,0.3); color: #F5C06A; }
+.verdictRed { background: rgba(200,64,42,0.3); color: #F49080; }
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+.summary { font-size: 0.88rem; color: rgba(245,240,232,0.7); line-height: 1.65; font-weight: 300; }
+
+/* Skills */
+.skillsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 580px) { .skillsGrid { grid-template-columns: 1fr; } }
+
+.skillCard {
+  background: var(--paper-bright);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.matched { border-top: 3px solid var(--green); }
+.missed { border-top: 3px solid var(--accent); }
+
+.skillTitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.dot[data-type="match"] { background: var(--green); }
+.dot[data-type="miss"] { background: var(--accent); }
+.count {
+  margin-left: auto;
+  background: var(--paper-dark);
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 0.78rem; padding: 4px 10px; border-radius: 100px; font-weight: 500; }
+.tagMatch { background: var(--green-soft); color: var(--green); }
+.tagMiss { background: var(--accent-soft); color: var(--accent-dark); }
+.none { font-size: 0.85rem; color: var(--ink-muted); font-style: italic; }
+
+/* Alignment */
+.alignGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 580px) { .alignGrid { grid-template-columns: 1fr; } }
+
+.alignCard {
+  background: var(--paper-dark);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+}
+.alignLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.4rem;
+}
+.alignText { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55; }
+
+/* Suggestions */
+.suggestionsCard {
+  background: var(--paper-bright);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+.suggestionsTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+.suggestionsList { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.suggestionItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.suggestionItem:last-child { border-bottom: none; }
+.suggNum {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+.suggText { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+/* Reset */
+.resetBtn {
+  align-self: center;
+  background: none;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.resetBtn:hover { border-color: var(--accent); color: var(--accent); }
