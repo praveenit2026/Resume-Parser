@@ -116,6 +116,39 @@ App runs at: http://localhost:5173
 
 ---
 
+## Deployment
+
+### Backend — Railway / Render / Fly.io
+
+1. Set `SAMBANOVA_API_KEY` as an environment variable
+2. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+### Frontend — Vercel / Netlify
+
+1. Set `VITE_API_URL` to your deployed backend URL
+2. Update `vite.config.js` proxy or use `axios.defaults.baseURL`
+3. `npm run build` → deploy `dist/` folder
+
+---
+
+## Production Deployment
+
+### 1. Backend (Railway)
+1. In Railway Settings, set the **Root Directory** to `backend`.
+2. Add the following **Variables**:
+   - `SAMBANOVA_API_KEY`: Your SambaNova Cloud API key.
+   - `SAMBANOVA_BASE_URL`: `https://api.sambanova.ai/v1`
+   - `SAMBANOVA_MODEL`: `Meta-Llama-3.1-70B-Instruct`
+3. Railway will use the `railway.json` and `backend/Dockerfile` automatically.
+
+### 2. Frontend (Vercel)
+1. Go to your Vercel Project Settings -> Environment Variables.
+2. Add `VITE_API_URL`.
+3. Set the value to your **Railway Backend URL** (e.g., `https://your-backend.up.railway.app`).
+4. **Re-deploy** your project on Vercel to apply the change.
+
+---
+
 ## Project Structure
 
 ```
