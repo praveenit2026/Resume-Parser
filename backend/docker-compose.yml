@@ -20,5 +20,19 @@ services:
       - endee-data:/data
     restart: unless-stopped
 
+  api:
+    build: .
+    container_name: resume-api
+    ports:
+      - "8000:8000"
+    environment:
+      - ENDEE_URL=http://endee:8080
+      - ENDEE_AUTH_TOKEN=${ENDEE_AUTH_TOKEN:-}
+      - SAMBANOVA_API_KEY=${SAMBANOVA_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    depends_on:
+      - endee
+    restart: unless-stopped
+
 volumes:
   endee-data:
