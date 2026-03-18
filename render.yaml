@@ -14,7 +14,7 @@ services:
       - key: ENDEE_URL
         sync: false
 
-  - type: static
+  - type: static_site
     name: resume-matcher-frontend
     env: static
     rootDir: frontend
