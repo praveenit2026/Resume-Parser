@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: resume-matcher-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    envVars:
+      - key: SAMBANOVA_API_KEY
+        sync: false
+      - key: SAMBANOVA_BASE_URL
+        value: https://api.sambanova.ai/v1
+      - key: SAMBANOVA_MODEL
+        value: Meta-Llama-3.1-8B-Instruct
+      - key: ENDEE_URL
+        sync: false
+
+  - type: static
+    name: resume-matcher-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
