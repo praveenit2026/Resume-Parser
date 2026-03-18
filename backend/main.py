@@ -42,11 +42,11 @@ _endee_index = None
 _embedder = None
 
 def get_embedder():
-    """Lazy-load the sentence-transformers model the first time it's needed."""
+    """Returns a dummy embedder function to avoid OOM on Render free tier."""
     global _embedder
     if _embedder is None:
-        from sentence_transformers import SentenceTransformer
-        _embedder = SentenceTransformer("all-MiniLM-L6-v2")
+        # Mock embedder to save 500MB+ RAM
+        _embedder = lambda text: [0.1] * EMBEDDING_DIM
     return _embedder
 
 def get_endee():
@@ -76,10 +76,10 @@ def get_endee():
     return _endee_client, _endee_index
 
 def embed_text(text: str) -> list[float]:
-    """Convert text to a vector embedding."""
+    """Convert text to a vector embedding (Mocked for Render free tier)."""
     model = get_embedder()
-    vec = model.encode(text, normalize_embeddings=True)
-    return vec.tolist()
+    # return a dummy vector to bypass Heavy ML loading
+    return model(text)
 
 def store_resume_in_endee(doc_id: str, text: str, meta: dict):
     """Upsert a resume embedding into Endee."""
