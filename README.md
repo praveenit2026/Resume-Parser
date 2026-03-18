@@ -118,74 +118,25 @@ App runs at: http://localhost:5173
 
 ## Deployment
 
-### Backend — Railway / Render / Fly.io
+This project is configured for automated deployment on **Render** using a single Blueprint (`render.yaml`).
 
-1. Set `SAMBANOVA_API_KEY` as an environment variable
-2. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+### Deploy Steps
 
-### Frontend — Vercel / Netlify
+1. Create an account on [Render](https://render.com).
+2. Go to your Dashboard → **New** → **Blueprint**.
+3. Connect your GitHub repository containing this project.
+4. Render will automatically detect the `render.yaml` file and create two services:
+   - `resume-matcher-backend` (Docker web service)
+   - `resume-matcher-frontend` (Static Site)
+5. During setup, configure the following Environment Variables:
 
-1. Set `VITE_API_URL` to your deployed backend URL
-2. Update `vite.config.js` proxy or use `axios.defaults.baseURL`
-3. `npm run build` → deploy `dist/` folder
+**Backend (`resume-matcher-backend`):**
+- `SAMBANOVA_API_KEY`: Your SambaNova Cloud API key
+- `SAMBANOVA_BASE_URL`: `https://api.sambanova.ai/v1` (optional, default provided)
+- `SAMBANOVA_MODEL`: `Meta-Llama-3.1-8B-Instruct` (optional, default provided)
+- `ENDEE_URL`: The URL of your Endee Vector DB (if using one, otherwise leave blank)
 
----
+**Frontend (`resume-matcher-frontend`):**
+- `VITE_API_URL`: Set this to your backend's Render URL (e.g., `https://resume-matcher-backend-xxxx.onrender.com`). *Note: Set this after the backend is created.*
 
-## Production Deployment
-
-### 1. Backend (Railway)
-1. In Railway Settings, set the **Root Directory** to `backend`.
-2. Add the following **Variables**:
-   - `SAMBANOVA_API_KEY`: Your SambaNova Cloud API key.
-   - `SAMBANOVA_BASE_URL`: `https://api.sambanova.ai/v1`
-   - `SAMBANOVA_MODEL`: `Meta-Llama-3.1-70B-Instruct`
-3. Railway will use the `railway.json` and `backend/Dockerfile` automatically.
-
-### 2. Frontend (Vercel)
-1. Go to your Vercel Project Settings -> Environment Variables.
-2. Add `VITE_API_URL`.
-3. Set the value to your **Railway Backend URL** (e.g., `https://your-backend.up.railway.app`).
-4. **Re-deploy** your project on Vercel to apply the change.
-
----
-
-## Project Structure
-
-```
-resume-matcher/
-├── backend/
-│   ├── main.py              # FastAPI app, routes, SambaNova integration
-│   ├── requirements.txt     # Python dependencies
-│   └── .env                 # API keys (ignored by git)
-│
-└── frontend/
-    ├── index.html
-    ├── vite.config.js       # Dev proxy to :8000
-    ├── package.json
-    └── src/
-        ├── main.jsx
-        ├── App.jsx          # Main layout & state
-        ├── App.module.css
-        ├── index.css        # Global design tokens
-        ├── hooks/
-        │   └── useApi.js    # Axios API client
-        └── components/
-            ├── UploadZone.jsx      # Drag & drop + paste input
-            ├── ScoreGauge.jsx      # SVG circular score gauge
-            └── ResultsPanel.jsx    # Full results display
-```
-
----
-
-## Deployment
-
-### Backend — Railway / Render / Fly.io
-
-1. Set `SAMBANOVA_API_KEY` as an environment variable
-2. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-
-### Frontend — Vercel / Netlify
-
-1. Set `VITE_API_URL` to your deployed backend URL
-2. Update `vite.config.js` proxy or use `axios.defaults.baseURL`
-3. `npm run build` → deploy `dist/` folder
+6. Click **Apply** to deploy both services automatically!
