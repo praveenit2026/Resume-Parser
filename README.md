@@ -1,6 +1,6 @@
 <div align="center">
   <h1>✨ Resume Matcher ✨</h1>
-  <p><b>An AI-Powered Full-Stack Application for Intelligent Resume Analysis</b></p>
+  <p><b>A Full-Stack Application for Intelligent Resume Analysis</b></p>
   
   [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
