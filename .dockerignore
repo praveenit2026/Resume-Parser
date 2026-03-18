@@ -1,0 +1,23 @@
+# Python
+**/venv/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Node
+**/node_modules/
+**/dist/
+
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+
+# Other
+.DS_Store
+Thumbs.db
+{backend,frontend/
