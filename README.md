@@ -6,6 +6,8 @@
   [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
   [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
   [![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+  <br/><br/>
+  <b>🚀 <a href="https://resume-parser-ivory.vercel.app">Live Demo: resume-parser-ivory.vercel.app</a> 🚀</b>
 </div>
 
 <br/>
