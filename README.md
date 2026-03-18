@@ -56,6 +56,15 @@ sequenceDiagram
 *   🧠 **Contextual Coaching:** 5 highly specific, actionable suggestions to tailor your resume for that exact role.
 *   ⚡ **Lightning Fast:** Built on FastAPI and SambaNova's high-speed inference cloud.
 
+### Application Preview
+
+<div align="center">
+  <img src="assets/input.png" alt="Resume Matcher Input Dashboard" width="45%" style="margin-right: 2%">
+  <img src="assets/output.png" alt="Resume Matcher Results Analysis" width="45%">
+  <br/>
+  <i>Left: The intuitive drag-and-drop input interface. Right: The detailed AI analysis dashboard.</i>
+</div>
+
 ---
 
 ## 💻 Local Development Setup
