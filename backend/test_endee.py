@@ -1,0 +1,1 @@
+from endee import Endee, Precision; from endee.schema import VectorItem; client = Endee(); client.set_base_url('http://localhost:8080/api/v1'); index = client.get_index('resumes'); print('Upserting dict...'); index.upsert([{'id': '1', 'vector': [0.1]*384}])
